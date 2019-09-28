@@ -5,22 +5,18 @@
 
 - name: Install python pre-cursor packages
   apt:
-    name: "{{ precursor_packages }}"
-    update_cache: true
-  vars:
-    precursor_packages:
+    name:
       - build-essential
       - libpq-dev
       - libssl-dev
       - openssl
       - libffi-dev
       - zlib1g-dev
+    update_cache: true
 
 - name: Install pip and python-dev packages
   apt:
-    name: "{{ pip_packages }}"
-  vars:
-    pip_packages:
+    name:
       - python3-pip
       - python3.7-dev
 
