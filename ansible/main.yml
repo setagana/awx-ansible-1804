@@ -9,7 +9,6 @@
   roles:
     - geerlingguy.nfs
     - geerlingguy.docker
-    - Stouts.python
 
   tasks:
     - name: Install some helpful utilities.
@@ -20,6 +19,9 @@
           - curl
           - vim
         state: installed
+    
+    - import_tasks: install-python.yml
+
     - name: Install Docker Compose pip library
       pip:
         name: docker-compose
