@@ -4,14 +4,17 @@
   },
   "provisioners": [
     {
-      "type": "shell",
       "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
-      "script": "scripts/ansible.sh"
-    },
-    {
-      "type": "shell",
-      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
-      "script": "scripts/setup.sh"
+      "inline": [
+        "apt -y update && apt-get -y upgrade",
+        "apt -y install software-properties-common",
+        "apt-add-repository ppa:ansible/ansible",
+        "apt -y update",
+        "apt -y install ansible",
+        "echo 'APT::Periodic::Enable \"0\";' >> /etc/apt/apt.conf.d/10periodic"
+      ],
+      "inline_shebang": "/bin/sh -x",
+      "type": "shell"
     },
     {
       "type": "ansible-local",
@@ -19,9 +22,15 @@
       "galaxy_file": "requirements.yml"
     },
     {
-      "type": "shell",
       "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
-      "script": "scripts/cleanup.sh"
+      "inline": [
+        "apt autoremove",
+        "apt update",
+        "sync",
+        "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
+      ],
+      "inline_shebang": "/bin/sh -x",
+      "type": "shell"
     }
   ],
   "builders": [
