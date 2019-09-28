@@ -5,12 +5,12 @@
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -S -E bash '{{ .Path }}'",
+      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
       "script": "scripts/ansible.sh"
     },
     {
       "type": "shell",
-      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -S -E bash '{{ .Path }}'",
+      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
       "script": "scripts/setup.sh"
     },
     {
@@ -20,7 +20,7 @@
     },
     {
       "type": "shell",
-      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -S -E bash '{{ .Path }}'",
+      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
       "script": "scripts/cleanup.sh"
     }
   ],
