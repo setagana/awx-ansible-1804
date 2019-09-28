@@ -3,9 +3,6 @@
   become: yes
   gather_facts: yes
 
-  vars:
-    python_versions: [2.7, 3.7]
-
   roles:
     - geerlingguy.nfs
     - geerlingguy.docker
@@ -48,4 +45,4 @@
     - name: Install Docker Compose pip library
       pip:
         name: docker-compose
-        executable: pip3
+        executable: pip2
