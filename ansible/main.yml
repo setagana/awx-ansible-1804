@@ -3,9 +3,14 @@
   become: yes
   gather_facts: yes
 
+  vars:
+    python_versions: [2.7, 3.7]
+
   roles:
     - geerlingguy.nfs
     - geerlingguy.packer-debian
+    - geerlingguy.docker
+    - Stouts.python
 
   tasks:
     - name: Install some helpful utilities.
@@ -16,3 +21,6 @@
           - curl
           - vim
         state: installed
+    - name: Install Docker Compose pip library
+      pip:
+        name: docker-compose

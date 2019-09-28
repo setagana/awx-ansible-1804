@@ -1,0 +1,19 @@
+resources:
+  containers:
+  - container: AzurePacker
+    image: matthewdb/azure-packer:1.4.3
+trigger:
+  batch: true
+  branches:
+    exclude:
+    - '*'
+jobs:
+- job: Build
+  container: AzurePacker
+  steps:
+  - task: qetza.replacetokens.replacetokens-task.replacetokens@3
+    displayName: 'Replace tokens in **/ubuntu1804.json'
+    inputs:
+      targetFiles: '**/ubuntu1804.json'
+      actionOnMissing: fail
+  - script: /usr/local/packer build ubuntu1804.json
