@@ -17,3 +17,4 @@ jobs:
       targetFiles: '**/ubuntu1804.json'
       actionOnMissing: fail
   - script: /usr/local/packer build ubuntu1804.json
+    displayName: Packer build
