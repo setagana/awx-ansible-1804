@@ -48,4 +48,4 @@
     - name: Install Docker Compose pip library
       pip:
         name: docker-compose
-        executable: pip-3.6
+        executable: pip3
