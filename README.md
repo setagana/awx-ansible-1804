@@ -2,7 +2,7 @@
 
 **Current Ubuntu Version Used**: 18.04.3
 
-This is inspired by [geerlingguy's Ubuntu 18.04 build], but builds the images to Azure instead.
+This is inspired by [geerlingguy's Ubuntu 18.04 build](https://github.com/geerlingguy/packer-ubuntu-1804), but builds the images to Azure instead.
 
 ## Usage
 
