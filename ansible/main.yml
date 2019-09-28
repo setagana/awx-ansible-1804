@@ -20,9 +20,32 @@
           - vim
         state: installed
     
-    - import_tasks: install-python.yml
+    # - name: Add deadsnakes ppa
+    #   apt_repository:
+    #     repo: 'ppa:deadsnakes/ppa'
+
+    # - name: Install python pre-cursor packages
+    #   apt:
+    #     name:
+    #       - build-essential
+    #       - libpq-dev
+    #       - libssl-dev
+    #       - openssl
+    #       - libffi-dev
+    #       - zlib1g-dev
+    #     update_cache: true
+
+    # - name: Install pip and python-dev packages
+    #   apt:
+    #     name:
+    #       - python3-pip
+    #       - python3.7-dev
+
+    # - name: Install python
+    #   apt:
+    #     name: python3.7
 
     - name: Install Docker Compose pip library
       pip:
         name: docker-compose
-        executable: pip-3.7
+        executable: pip-3.6
