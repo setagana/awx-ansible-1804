@@ -45,4 +45,4 @@
     - name: Install Docker Compose pip library
       pip:
         name: docker-compose
-        executable: pip2
+        executable: pip2.7
