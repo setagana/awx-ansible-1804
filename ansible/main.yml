@@ -15,7 +15,7 @@
           - wget
           - curl
           - vim
-        state: installed
+        state: present
     
     - name: Add deadsnakes ppa
       apt_repository:
