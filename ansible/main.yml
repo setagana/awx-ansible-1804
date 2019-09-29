@@ -17,6 +17,10 @@
           - vim
         state: present
     
+    - name: Install Docker Compose pip library
+      pip:
+        name: docker-compose
+    
     - name: Add deadsnakes ppa
       apt_repository:
         repo: 'ppa:deadsnakes/ppa'
@@ -41,8 +45,3 @@
     - name: Install python
       apt:
         name: python3.7
-
-    - name: Install Docker Compose pip library
-      pip:
-        name: docker-compose
-        executable: pip2.7
