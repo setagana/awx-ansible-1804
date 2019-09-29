@@ -6,6 +6,7 @@
   roles:
     - geerlingguy.nfs
     - geerlingguy.docker
+    - geerlingguy.pip
 
   tasks:
     - name: Install some helpful utilities.
